@@ -2,7 +2,7 @@ const { expect } = require('chai');
 const sinon = require('sinon');
 
 const productsController = require('../../../src/controllers/productsController');
-const productsModel = require('../../../src/models/productsModel');
+const productsService = require('../../../src/services/productService');
 const productsMock = require('../models/product.model.mock');
 
 describe('Testes da camada Controller de products', () => {
@@ -13,7 +13,7 @@ describe('Testes da camada Controller de products', () => {
     res.json = sinon.stub().returns();
 
      sinon
-      .stub(productsModel, 'selectAllProducts')
+      .stub(productsService, 'serviceGetAllProducts')
       .resolves(productsMock[0]);
     
     await productsController.getAllProducts(req, res);
@@ -28,7 +28,7 @@ describe('Testes da camada Controller de products', () => {
     res.json = sinon.stub().returns();
 
     sinon
-      .stub(productsModel, 'selectById')
+      .stub(productsService, 'serviceGetProductsById')
       .resolves(productsMock[0][0]);
     
     await productsController.getAllProductsById(req, res);
@@ -43,7 +43,7 @@ describe('Testes da camada Controller de products', () => {
     res.json = sinon.stub().returns();
 
     sinon
-      .stub(productsModel, 'selectById')
+      .stub(productsService, 'serviceGetProductsById')
       .resolves(productsMock[0][0]);
     
     await productsController.getAllProductsById(req, res);
