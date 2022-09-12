@@ -12,4 +12,10 @@ const selectById = async (id) => {
   return product[0];
 };
 
-module.exports = { selectAllProducts, selectById };
+const insertProduct = async ({ name }) => {
+  const query = 'INSERT INTO StoreManager.products (name) VALUES (?)';
+  const [product] = await connection.execute(query, [name]);
+  return product.insertId;
+};
+
+module.exports = { selectAllProducts, selectById, insertProduct };

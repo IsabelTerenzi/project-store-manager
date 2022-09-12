@@ -13,7 +13,7 @@ const getAllProductsById = async (req, res, next) => {
   try {
     const { id } = req.params;
     const getProductsId = await productsService.serviceGetProductsById(id);
-    
+
     if (!getProductsId) {
     res.status(404).json({ message: 'Product not found' });
   }
@@ -23,4 +23,14 @@ const getAllProductsById = async (req, res, next) => {
   }
 };
 
-module.exports = { getAllProducts, getAllProductsById };
+const controllerCreateProduct = async (req, res, next) => {
+  try {
+    const { name } = req.body;
+    const createProduct = await productsService.serviceCreateProduct({ name });
+    res.status(201).json(createProduct);
+  } catch (error) {
+    next(error);
+  }
+};
+
+module.exports = { getAllProducts, getAllProductsById, controllerCreateProduct };
