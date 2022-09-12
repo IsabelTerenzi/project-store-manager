@@ -13,7 +13,9 @@ const serviceGetProductsById = async (id) => {
 
 const serviceCreateProduct = async ({ name }) => {
   const { error } = productValidation.validate({ name });
-  const { details } = error;
+  if (error) {
+    const { details } = error;
+
   if (details[0].type === 'string.min') {
     throw Object.assign(
       new Error(error.message),
@@ -26,6 +28,7 @@ const serviceCreateProduct = async ({ name }) => {
       { status: 400 },
     );
   }
+}
   const id = await productsModel.insertProduct({ name });
   return { id, name };
 };
