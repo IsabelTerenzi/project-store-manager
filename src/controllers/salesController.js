@@ -23,6 +23,21 @@ const controllerGetSalesById = async (req, res, next) => {
   }
 };
 
+const controllerDeleteSale = async (req, res, next) => {
+  try {
+    const { id } = req.params;
+    const [deleteSale] = await salesService.serviceGetSalesById(id);
+
+    if (!deleteSale) {
+      return res.status(404).json({ message: 'Sale not found' });
+    }
+    await salesService.serviceDeleteSale(id);
+    res.status(204).end();
+  } catch (error) {
+    next(error).end();
+  }
+};
+
 /* const controllerCreateSale = async (req, res) => {
   try {
     const { saleId, productId, quantity } = req.body;
@@ -36,4 +51,4 @@ const controllerGetSalesById = async (req, res, next) => {
 };
 */
 
-module.exports = { controllerGetAllSales, controllerGetSalesById };
+module.exports = { controllerGetAllSales, controllerGetSalesById, controllerDeleteSale };

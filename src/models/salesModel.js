@@ -22,6 +22,11 @@ const selectSalesById = async (id) => {
   return product;
 };
 
+const deleteSale = async (id) => {
+  const query = 'DELETE FROM StoreManager.sales WHERE id = ?';
+  await connection.execute(query, [id]);
+};
+
 /* const insertSale = async ({ saleId, productId, quantity }) => {
   const query = `INSERT INTO StoreManager.sales_products
   (sale_id, product_id, quantity) VALUES(?, ?, ?)`;
@@ -36,4 +41,4 @@ const insertDateSale = async () => {
 };
 */ 
 
-module.exports = { selectAllSales, selectSalesById };
+module.exports = { selectAllSales, selectSalesById, deleteSale };

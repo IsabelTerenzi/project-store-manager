@@ -12,6 +12,10 @@ const serviceGetSalesById = async (id) => {
   return result;
 };
 
+const serviceDeleteSale = async (id) => {
+  await salesModel.deleteSale(id); 
+};
+
 /* const verifyValidations = ({ productId, quantity }) => {
   const { error } = saleValidation.validate({ productId, quantity });
   if (error) {
@@ -48,4 +52,4 @@ const serviceCreateSale = async (allProducts) => {
 };
 
 */
-module.exports = { serviceGetAllSales, serviceGetSalesById };
+module.exports = { serviceGetAllSales, serviceGetSalesById, serviceDeleteSale };
