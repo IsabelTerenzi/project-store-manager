@@ -25,5 +25,21 @@ describe('Testa a camada Service de products', () => {
 
     expect(result).to.be.equal(productsMock[0][0]);
   })
+
+  /* it('Testa a criação de um produto', async () => {
+    sinon
+      .stub(productsModel, 'insertProduct')
+      .resolves(newProduct);
+    
+     
+    const result = await productsService.serviceCreateProduct({
+      name: 'ProdutoX'
+    });
+
+    expect(result).to.be.equal(newProduct);
+  })
+  */
+
   afterEach(sinon.restore);
 })
+

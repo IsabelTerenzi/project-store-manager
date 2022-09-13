@@ -33,4 +33,13 @@ const serviceCreateProduct = async ({ name }) => {
   return { id, name };
 };
 
-module.exports = { serviceGetAllProducts, serviceGetProductsById, serviceCreateProduct };
+const serviceDeleteProduct = async (id) => {
+  await productsModel.deleteProduct(id); 
+};
+
+module.exports = {
+  serviceGetAllProducts,
+  serviceGetProductsById,
+  serviceCreateProduct,
+  serviceDeleteProduct,
+};

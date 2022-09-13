@@ -9,6 +9,6 @@ app.listen(process.env.PORT, async () => {
 
  // const [result] = await connection.execute('SELECT 1');
  // if (result) {
-  //  console.log('MySQL connection is OK');
+   // console.log('MySQL connection is OK');
   // }
 });

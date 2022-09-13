@@ -18,4 +18,9 @@ const insertProduct = async ({ name }) => {
   return product.insertId;
 };
 
-module.exports = { selectAllProducts, selectById, insertProduct };
+const deleteProduct = async (id) => {
+  const query = 'DELETE FROM StoreManager.products WHERE id = ?';
+  await connection.execute(query, [id]);
+};
+
+module.exports = { selectAllProducts, selectById, insertProduct, deleteProduct };
