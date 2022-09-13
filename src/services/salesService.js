@@ -12,44 +12,26 @@ const serviceGetSalesById = async (id) => {
   return result;
 };
 
+const serviceCreateSale = async (allProducts) => {
+  const searchProduct = await allProducts
+    .map(({ productId }) => salesModel.selectSalesById(productId));  
+  
+  if (searchProduct.some((id) => id === undefined)) {
+    return { status: 404, message: 'Product not found' };
+  }
+
+  const saleId = await salesModel.insertDateSale();
+  
+  await Promise.all(
+    allProducts.map((product) =>
+      salesModel.insertSale({ saleId, ...product })),
+  );
+  
+  return { saleId };
+};
+
 const serviceDeleteSale = async (id) => {
   await salesModel.deleteSale(id); 
 };
 
-/* const verifyValidations = ({ productId, quantity }) => {
-  const { error } = saleValidation.validate({ productId, quantity });
-  if (error) {
-    const { details } = error;
-
-    if (details[0].type === 'any.required') {
-      throw Object.assign(
-        new Error(error.message),
-        { status: 400 },
-      );
-    }
-    if (details[0].type === 'string.min') {
-      throw Object.assign(
-        new Error(error.message),
-        { status: 422 },
-      );
-    }
-  }
-};
-
-const serviceCreateSale = async (allProducts) => {
-  const searchProduct = await allProducts
-    .map(({ productId }) => productModel.selectById(productId));  
-  
-  if (!searchProduct) throw new Error('Product not found');
-
-  await verifyValidations();
-  
-  const saleId = await salesModel.insertDateSale();
-
-  const result = await allProducts.map((product) =>
-    salesModel.insertSale({ saleId, ...product }));
-  return result;
-};
-
-*/
-module.exports = { serviceGetAllSales, serviceGetSalesById, serviceDeleteSale };
+module.exports = { serviceGetAllSales, serviceGetSalesById, serviceCreateSale, serviceDeleteSale };
