@@ -1,17 +1,23 @@
-const saleValidation = (allProducts) => { 
-   if (allProducts.some(({ quantity }) => quantity <= 0)) {
-    return { message: '"quantity" must be greater than or equal to 1' };
-   }
+const saleValidation = (req, res, next) => {
+  const allProducts = req.body;
   
-  if (allProducts.some(({ productId }) => !productId)) {
-    return { message: '"productId" is required' };
+  const idSearch = allProducts.every(({ productId }) => productId);
+  if (!idSearch) {
+    return res.status(400).json({ message: '"productId" is required' });
   }
 
-  if (allProducts.some(({ quantity }) => !quantity)) {
-    return { message: '"quantity" is required' };
+  const quantitySearch = allProducts
+    .every(({ quantity }) => quantity === null || quantity === undefined);
+  if (quantitySearch) {
+    return res.status(400).json({ message: '"quantity" is required' });
   }
 
-  return { message: 'product created' };
+  const quantityNumber = allProducts.every(({ quantity }) => quantity > 0);
+  if (!quantityNumber) {
+    return res.status(422).json({ message: '"quantity" must be greater than or equal to 1' });
+  }
+
+  return next();
 };
 
 module.exports = saleValidation;

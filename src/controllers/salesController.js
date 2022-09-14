@@ -1,5 +1,5 @@
 const salesService = require('../services/salesService');
-const saleValidation = require('../middlewares/saleValidation');
+// const saleValidation = require('../middlewares/saleValidation');
 
 const controllerGetAllSales = async (_req, res, next) => {
   try {
@@ -25,18 +25,8 @@ const controllerGetSalesById = async (req, res, next) => {
 };
 
 const controllerCreateSale = async (req, res) => {
-  const allProducts = req.body;
-  const { message } = saleValidation(allProducts);
-
-  if (message.includes('required')) {
-    return res.status(400).json({ message });
-  }
-
-  if (message.includes('greater')) {
-    return res.status(422).json({ message });
-  }
-
   try {
+    const allProducts = req.body;
     const { saleId } = await salesService.serviceCreateSale(allProducts);
     return res.status(201).json({ id: saleId, itemsSold: allProducts }); 
   } catch (error) {
