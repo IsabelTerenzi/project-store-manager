@@ -1,9 +1,9 @@
 const salesModel = require('../models/salesModel');
-// const productModel = require('../models/productsModel');
 // const saleValidation = require('../middlewares/saleValidation');
 
 const serviceGetAllSales = async () => {
   const result = await salesModel.selectAllSales();
+  console.log(result);
   return result;
 };
 
@@ -13,12 +13,11 @@ const serviceGetSalesById = async (id) => {
 };
 
 const serviceCreateSale = async (allProducts) => {
-  const searchProduct = await allProducts
-    .map(({ productId }) => salesModel.selectSalesById(productId));  
+  const searchProduct = await Promise.all(
+    allProducts.map(({ productId }) => salesModel.selectSalesById(productId)),
+);  
   
-  if (searchProduct.some((id) => id === undefined)) {
-    return { status: 404, message: 'Product not found' };
-  }
+  if (searchProduct.some((product) => !product[0])) throw new Error('Product not found');
 
   const saleId = await salesModel.insertDateSale();
   
