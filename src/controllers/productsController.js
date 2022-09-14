@@ -33,6 +33,22 @@ const controllerCreateProduct = async (req, res, next) => {
   }
 };
 
+const controllerUpdateProduct = async (req, res, next) => {
+  try {
+    const { id } = req.params;
+    const { name } = req.body;
+
+    const updateProduct = await productsService.serviceUpdateProduct({ id, name });
+
+    if (!updateProduct) {
+    res.status(404).json({ message: 'Product not found' });
+  }    
+    res.status(200).json(updateProduct);
+  } catch (error) {
+    next(error);
+  }
+};
+
 const controllerDeleteProduct = async (req, res, next) => {
   try {
     const { id } = req.params;
@@ -52,5 +68,6 @@ module.exports = {
   getAllProducts,
   getAllProductsById,
   controllerCreateProduct,
+  controllerUpdateProduct,
   controllerDeleteProduct,
 };

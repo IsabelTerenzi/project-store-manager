@@ -21,10 +21,18 @@ const insertProduct = async ({ name }) => {
   return product.insertId;
 };
 
+// Requisito 10 - Crie endpoint para atualizar um produto
+const updateProduct = async ({ name, id }) => {
+  const query = 'UPDATE StoreManager.products SET name = (?) WHERE id = (?)';
+  await connection.execute(query, [name, id]);
+  const product = await selectById(id);
+  return product;
+};
+
 // Requisito 12 - Crie endpoint para deletar um produto
 const deleteProduct = async (id) => {
   const query = 'DELETE FROM StoreManager.products WHERE id = ?';
   await connection.execute(query, [id]);
 };
 
-module.exports = { selectAllProducts, selectById, insertProduct, deleteProduct };
+module.exports = { selectAllProducts, selectById, insertProduct, updateProduct, deleteProduct };
