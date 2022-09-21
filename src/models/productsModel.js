@@ -7,6 +7,13 @@ const selectAllProducts = async () => {
   return products;
 };
 
+// Requisito 18 - Crie endpoint products/search?q=searchTerm
+const searchProduct = async (name) => {
+  const query = `SELECT * FROM StoreManager.products WHERE name LIKE '%${name}%'`;
+  const [products] = await connection.execute(query);
+  return products;
+};
+
 // Requisito 1 - Crie endpoints para listar produtos
 const selectById = async (id) => {
   const query = 'SELECT * FROM StoreManager.products WHERE id = ?';
@@ -35,4 +42,11 @@ const deleteProduct = async (id) => {
   await connection.execute(query, [id]);
 };
 
-module.exports = { selectAllProducts, selectById, insertProduct, updateProduct, deleteProduct };
+module.exports = {
+  selectAllProducts,
+  searchProduct,
+  selectById,
+  insertProduct,
+  updateProduct,
+  deleteProduct,
+};

@@ -139,5 +139,179 @@
     "headers": [],
     "params": [],
     "tests": []
+  },
+  {
+    "_id": "deb2e9e4-2eea-4b6f-906e-d4825976b5f9",
+    "colId": "history",
+    "containerId": "",
+    "name": "http://localhost:3000/products/search?q=Martelo",
+    "url": "http://localhost:3000/products/search?q=Martelo",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2022-09-21T19:10:50.391Z",
+    "modified": "2022-09-21T19:51:06.944Z",
+    "headers": [],
+    "params": [
+      {
+        "name": "q",
+        "value": "Martelo",
+        "isPath": false
+      }
+    ],
+    "tests": []
+  },
+  {
+    "_id": "4f4c972d-eade-4620-b3da-5a2519f2749e",
+    "colId": "history",
+    "containerId": "",
+    "name": " http://localhost:3000/products/search?q=Martelo",
+    "url": " http://localhost:3000/products/search?q=Martelo",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2022-09-21T19:11:34.229Z",
+    "modified": "2022-09-21T19:13:10.786Z",
+    "headers": [],
+    "params": [
+      {
+        "name": "q",
+        "value": "Martelo",
+        "isPath": false
+      }
+    ],
+    "tests": []
+  },
+  {
+    "_id": "f05a0432-3b64-4fe7-a245-83d32b6948f6",
+    "colId": "history",
+    "containerId": "",
+    "name": "http://localhost:3000/products",
+    "url": "http://localhost:3000/products",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2022-09-21T19:17:59.958Z",
+    "modified": "2022-09-21T19:40:14.867Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "3d50d359-ce1c-440e-b9db-ea40296e1140",
+    "colId": "history",
+    "containerId": "",
+    "name": "http://localhost:3000/products/search?q=Machado",
+    "url": "http://localhost:3000/products/search?q=Machado",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2022-09-21T19:18:13.494Z",
+    "modified": "2022-09-21T19:18:13.562Z",
+    "headers": [],
+    "params": [
+      {
+        "name": "q",
+        "value": "Machado",
+        "isPath": false
+      }
+    ],
+    "tests": []
+  },
+  {
+    "_id": "05cf2a9a-c6da-40d0-9a3e-1c5c3f13a140",
+    "colId": "history",
+    "containerId": "",
+    "name": "http://localhost:3000/products/search?q=Traje",
+    "url": "http://localhost:3000/products/search?q=Traje",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2022-09-21T19:40:22.390Z",
+    "modified": "2022-09-21T19:40:22.452Z",
+    "headers": [],
+    "params": [
+      {
+        "name": "q",
+        "value": "Traje",
+        "isPath": false
+      }
+    ],
+    "tests": []
+  },
+  {
+    "_id": "3f688bdd-79ea-418d-89c3-05da75ec5038",
+    "colId": "history",
+    "containerId": "",
+    "name": "http://localhost:3000/products/search?q=Thor",
+    "url": "http://localhost:3000/products/search?q=Thor",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2022-09-21T19:40:47.500Z",
+    "modified": "2022-09-21T19:52:21.684Z",
+    "headers": [],
+    "params": [
+      {
+        "name": "q",
+        "value": "Thor",
+        "isPath": false
+      }
+    ],
+    "tests": []
+  },
+  {
+    "_id": "0cac49bc-774d-4da1-90f7-9e53b31d00e4",
+    "colId": "history",
+    "containerId": "",
+    "name": "http://localhost:3000/products/search?q=",
+    "url": "http://localhost:3000/products/search?q=",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2022-09-21T19:41:14.356Z",
+    "modified": "2022-09-21T19:52:29.554Z",
+    "headers": [],
+    "params": [
+      {
+        "name": "q",
+        "value": "",
+        "isPath": false
+      }
+    ],
+    "tests": []
+  },
+  {
+    "_id": "17c4d2e2-3357-4740-a018-362250aa0a59",
+    "colId": "history",
+    "containerId": "",
+    "name": "http://localhost:3000/products/search?q=Oi",
+    "url": "http://localhost:3000/products/search?q=Oi",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2022-09-21T19:45:35.610Z",
+    "modified": "2022-09-21T19:45:35.674Z",
+    "headers": [],
+    "params": [
+      {
+        "name": "q",
+        "value": "Oi",
+        "isPath": false
+      }
+    ],
+    "tests": []
+  },
+  {
+    "_id": "adb1250d-4466-440f-933c-f95f2a5248a0",
+    "colId": "history",
+    "containerId": "",
+    "name": "http://localhost:3000/products/search?q=oi",
+    "url": "http://localhost:3000/products/search?q=oi",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2022-09-21T19:52:25.748Z",
+    "modified": "2022-09-21T19:52:25.813Z",
+    "headers": [],
+    "params": [
+      {
+        "name": "q",
+        "value": "oi",
+        "isPath": false
+      }
+    ],
+    "tests": []
   }
 ]

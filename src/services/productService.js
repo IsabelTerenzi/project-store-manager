@@ -6,6 +6,11 @@ const serviceGetAllProducts = async () => {
   return result;
 };
 
+const serviceSearchProduct = async (name) => {
+  const result = await productsModel.searchProduct(name);
+  return result;
+};
+
 const serviceGetProductsById = async (id) => {
   const result = await productsModel.selectById(id);
   return result;
@@ -61,6 +66,7 @@ const serviceDeleteProduct = async (id) => {
 
 module.exports = {
   serviceGetAllProducts,
+  serviceSearchProduct,
   serviceGetProductsById,
   serviceCreateProduct,
   serviceUpdateProduct,

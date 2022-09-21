@@ -9,6 +9,16 @@ const getAllProducts = async (_req, res, next) => {
   }
 };
 
+const controllerSearchProduct = async (req, res, next) => {
+  try {
+    const { q } = req.query;
+    const searchProduct = await productsService.serviceSearchProduct(q);
+    res.status(200).json(searchProduct);
+  } catch (error) {
+    next(error);
+  }
+};
+
 const getAllProductsById = async (req, res, next) => {
   try {
     const { id } = req.params;
@@ -66,6 +76,7 @@ const controllerDeleteProduct = async (req, res, next) => {
 
 module.exports = {
   getAllProducts,
+  controllerSearchProduct,
   getAllProductsById,
   controllerCreateProduct,
   controllerUpdateProduct,
